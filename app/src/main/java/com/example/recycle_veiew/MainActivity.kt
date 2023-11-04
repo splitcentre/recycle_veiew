@@ -2,22 +2,42 @@ package com.example.recycle_veiew
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.recycle_veiew.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val adapterDisaster = HeroAdapter(generateDummy()){
+                hero -> Toast.makeText(this@MainActivity,
+            "You clicked on ${hero.HeroName}",
+            Toast.LENGTH_SHORT).show()}
+
+        with(binding) {
+            rvHero.apply {
+                adapter = adapterDisaster
+                layoutManager = LinearLayoutManager(this@MainActivity)
+            }
+//                rvDisaster.apply {
+//                    adapter = adapterDisaster
+//                    layoutManager = GridLayoutManager(this@MainActivity, 2)
+//                }
+        }
     }
+}
 
     fun generateDummy(): List<Hero> {
         return listOf(
-            Hero(imageResId = R.drawable.musashi, HeroName = "Musashi", nation = "Miyamoto", wafat = "13 Juni 1645"),
-            Hero(imageResId = R.drawable.hondatadakatsu, HeroName = "Honda Tadakatsu", nation = "Tokugawa", wafat = "3 Desember 1610" ),
-            Hero(imageResId = R.drawable.odanobunaga, HeroName = "Oda Nobunaga", nation = "Oda", wafat = "21 Juni 1582"),
-            Hero(imageResId = R.drawable.ieyasu_tokugawa, HeroName = "Ieyasu Tokugawa", nation = "Tokugawa", wafat = "1 Juni 1616"),
-            Hero(imageResId = R.drawable.shingentakeda, HeroName = "Shingen Takeda", nation = "Takeda", wafat = "13 Mei 1573"),
-            Hero(imageResId = R.drawable.chosokabe, HeroName = "Chosokabe Motochika", nation = "Chosokabe", wafat = "11 Juli 1599"),
-            Hero(imageResId = R.drawable.motonari, HeroName = "Mori Motonari", nation = "Mori", wafat = "6 Juli 1571"),
+            Hero(imageResId = R.drawable.jfk, HeroName = "John F Kennedy", nation = "United States", Born = "May 29, 1917"),
+            Hero(imageResId = R.drawable.jackchurchil, HeroName = "Jack Churchil", nation = "Great Britain(Sri lanka)", Born = "September 16, 1906" ),
+            Hero(imageResId = R.drawable.meiji, HeroName = "Mutsuhito", nation = "Japan", Born = "November 3, 1852"),
+            Hero(imageResId = R.drawable.fredrick, HeroName = "Frederick II", nation = "Germany(Prussia)", Born = "January 24, 1712"),
+            Hero(imageResId = R.drawable.hatta, HeroName = "Mohammad Hatta", nation = "Indonesia", Born = "August 12, 1902"),
         )
     }
-}
