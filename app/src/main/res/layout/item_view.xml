@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <ImageView
+        android:id="@+id/hero_potrait"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="2dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/alan"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txt_hero_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="5dp"
+        android:text="Alan Monroe"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hero_potrait"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_nat"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="5dp"
+        android:textSize="10sp"
+        android:text="Nationality:"
+        app:layout_constraintStart_toEndOf="@+id/hero_potrait"
+        app:layout_constraintTop_toBottomOf="@+id/txt_hero_name" />
+
+    <TextView
+        android:id="@+id/nation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="5dp"
+        android:text="nation"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/txt_nat"
+        app:layout_constraintTop_toBottomOf="@+id/txt_hero_name" />
+
+    <TextView
+        android:id="@+id/txt_born"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="5dp"
+        android:text="Born  :"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/hero_potrait"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nat" />
+
+    <TextView
+        android:id="@+id/born"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="5dp"
+        android:text="november 12th 2000"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/txt_born"
+        app:layout_constraintTop_toBottomOf="@+id/nation" />
+</androidx.constraintlayout.widget.ConstraintLayout>
